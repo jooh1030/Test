@@ -5,4 +5,6 @@ html5up-alpha.zip / html5up-strata.zip
 DB SQL - 쿼리문 백업
 
 netstat -a -o
-taskkill /f /pid PID번호
+
+taskkill / f / pid PID 번호
+
