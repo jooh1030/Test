@@ -1,0 +1,20 @@
+SHOW DATABASES;
+CREATE DATABASE demo_db;
+USE demo_db;
+DROP DATABASE demo_db;
+
+SHOW TABLES;
+
+CREATE TABLE dm_member (
+userid VARCHAR(40) NOT NULL,
+userpass VARCHAR(100) NOT NULL,
+username VARCHAR(40) NOT NULL,
+REGDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+PRIMARY KEY(userid)
+);
+
+// timestamp는 서버의 TIMEZONE 기반으로 UTC로 변환되어 저장됨 (4byte) TIMEZONE 변경하면 시간도 바뀜
+// 사용범위 = ‘1970-01-01 00:00:01’ UTC ~ ‘2038-01-19 03:14:07’ UTC
+
+// datetime 입력한 값 그대로 저장됨 (8byte) 사용 범위도 훨씬 넓음
+// 사용범위 = ‘1000-01-01 00:00:00’ ~ ‘9999-12-31 23:59:59’
