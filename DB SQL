@@ -18,3 +18,5 @@ PRIMARY KEY(userid)
 
 // datetime 입력한 값 그대로 저장됨 (8byte) 사용 범위도 훨씬 넓음
 // 사용범위 = ‘1000-01-01 00:00:00’ ~ ‘9999-12-31 23:59:59’
+
+INSERT INTO dm_member(userid, userpass, username) VALUES ('test', 'test', 'admin'); // 테스트 데이터
