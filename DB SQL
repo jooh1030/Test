@@ -20,3 +20,21 @@ PRIMARY KEY(userid)
 // 사용범위 = ‘1000-01-01 00:00:00’ ~ ‘9999-12-31 23:59:59’
 
 INSERT INTO dm_member(userid, userpass, username) VALUES ('test', 'test', 'admin'); // 테스트 데이터
+
+
+CREATE TABLE MP_BOARD(
+    BNO NUMBER NOT NULL,
+    TITLE VARCHAR2(100)     NOT NULL,
+    CONTENT VARCHAR2(2000)  NOT NULL,
+    WRITER VARCHAR2(100)    NOT NULL,
+    REGDATE DATE            DEFAULT SYSDATE,
+    PRIMARY KEY(BNO)
+);
+
+//번호 자동 증가 (추후 수정할지 고민)
+CREATE SEQUENCE MP_BOARD_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO MP_BOARD(BNO, TITLE, CONTENT, WRITER)
+     VALUES (MP_BOARD_SEQ.NEXTVAL, '제목입니다', '내용입니다', 'MELONPEACH'); //테스트 데이터
