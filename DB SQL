@@ -39,7 +39,7 @@ CREATE TABLE dm_board(
 //테이블 하나를 추가로 생성하여 생성시마다 UPDATE (0번? ?? ???)
 
 INSERT INTO DM_BOARD(BNO, TITLE, CONTENT, WRITER)
-     VALUES (1, '제목입니다', '내용입니다', 'TESTUSER'); //테스트 데이터
+     VALUES (1, '제목입니다', '내용입니다', 'TESTUSER'); //테스트 게시물
      
 ALTER TABLE dm_board ADD COLUMN hit ??? //조회수 컬럼 추가
      
@@ -54,6 +54,9 @@ CREATE TABLE dm_reply (
     PRIMARY KEY(BNO, RNO),
     CONSTRAINT FK_dmBoard_dmReply FOREIGN KEY(bno) REFERENCES dm_board(dno)
 );
+
+INSERT INTO dm_reply(bno, rno, content, writer)
+    VALUES(1, 1, '테스트댓글', '테스트 작성자'); //테스트 댓글
 
 
 //ALTER로 외래키 지정 메모
