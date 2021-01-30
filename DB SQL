@@ -5,6 +5,8 @@ DROP DATABASE demo_db;
 
 SHOW TABLES;
 
+
+//회원
 CREATE TABLE dm_member (
 userid VARCHAR(40) NOT NULL,
 userpass VARCHAR(100) NOT NULL,
@@ -22,6 +24,7 @@ PRIMARY KEY(userid)
 INSERT INTO dm_member(userid, userpass, username) VALUES ('test', 'test', 'admin'); // 테스트 데이터
 
 
+//게시글
 CREATE TABLE dm_board(
     BNO INT NOT NULL,
     TITLE VARCHAR(100) NOT NULL,
@@ -37,3 +40,24 @@ CREATE TABLE dm_board(
 
 INSERT INTO DM_BOARD(BNO, TITLE, CONTENT, WRITER)
      VALUES (1, '제목입니다', '내용입니다', 'TESTUSER'); //테스트 데이터
+     
+ALTER TABLE dm_board ADD COLUMN hit ??? //조회수 컬럼 추가
+     
+     
+//댓글
+CREATE TABLE dm_reply (
+    BNO INT not null,
+    RNO INT not null,
+    CONTENT VARCHAR(1000) not null,
+    WRITER VARCHAR(50) not null,
+    REGDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    PRIMARY KEY(BNO, RNO),
+    CONSTRAINT FK_dmBoard_dmReply FOREIGN KEY(bno) REFERENCES dm_board(dno)
+);
+
+
+//ALTER로 외래키 지정 메모
+ALTER TABLE buyTBL -- 테이블 수정
+ADD CONSTRAINT FK_userTBL_buyTBL -- 제약조건 추가. 외래키 이름을 설정
+FOREIGN KEY (userID) -- 외래키 제약조건을 userID에 설정
+REFERENCES userTBL(userID); -- 참조할 기준 테이블은 userTBL 테이블의 userID 열로 설정
