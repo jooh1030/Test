@@ -52,7 +52,7 @@ CREATE TABLE dm_reply (
     WRITER VARCHAR(50) not null,
     REGDATE TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY(BNO, RNO),
-    CONSTRAINT FK_dmBoard_dmReply FOREIGN KEY(bno) REFERENCES dm_board(dno)
+    CONSTRAINT FK_dmBoard_dmReply FOREIGN KEY(bno) REFERENCES dm_board(bno)
 );
 
 INSERT INTO dm_reply(bno, rno, content, writer)
