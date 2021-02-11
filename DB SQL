@@ -64,3 +64,6 @@ ALTER TABLE buyTBL -- 테이블 수정
 ADD CONSTRAINT FK_userTBL_buyTBL -- 제약조건 추가. 외래키 이름을 설정
 FOREIGN KEY (userID) -- 외래키 제약조건을 userID에 설정
 REFERENCES userTBL(userID); -- 참조할 기준 테이블은 userTBL 테이블의 userID 열로 설정
+
+
+ALTER TABLE 테이블명 MODIFY 컬럼명 INT NOT NULL AUTO_INCREMENT; //자동 증가 수정
