@@ -17,4 +17,5 @@ taskkill / f / pid PID 번호
 
 # 버전
 이클립스 2019-12
+
 Maria DB 10.5
